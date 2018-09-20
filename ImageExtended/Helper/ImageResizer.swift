@@ -24,7 +24,7 @@ public class ImageResizer {
                completion: completion)
     }
     
-    public static func resize(image: UIImage, contentMode: UIViewContentMode, toSize size: CGSize,
+    public static func resize(image: UIImage, contentMode: UIView.ContentMode, toSize size: CGSize,
                               interpolationQuality quality: CGInterpolationQuality,
                               completion: @escaping ResizerCompletion) {
         if image.size.height < size.height && image.size.width < size.width {
@@ -123,7 +123,7 @@ public class ImageResizer {
     }
     
     
-    private static func drawTransposed(orientation: UIImageOrientation) -> Bool {
+    private static func drawTransposed(orientation: UIImage.Orientation) -> Bool {
         switch (orientation) {
         case .left, .leftMirrored, .right, .rightMirrored:
             return true

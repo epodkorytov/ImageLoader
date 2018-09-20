@@ -93,7 +93,7 @@ public class DiskStorage: ImageStorageProtocol {
     
     public func store(image: UIImage, data: Data?, forKey key: String) {
         storageQueue.async { [weak self] in
-            guard let data = data ?? UIImagePNGRepresentation(image), let storage = self else { return }
+            guard let data = data ?? image.pngData(), let storage = self else { return }
             storage.fileManager.createFile(atPath: storage.defaultStoragePath(forKey: key), contents: data,
                                            attributes: nil)
             storage.reduceStorage()
